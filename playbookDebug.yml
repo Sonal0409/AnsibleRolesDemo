@@ -1,0 +1,6 @@
+
+---
+- hosts: webserver
+  tasks:
+  - name: Print a message
+    debug: msg="Hello from Ansible"

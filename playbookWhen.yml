@@ -1,0 +1,12 @@
+
+---
+- hosts: webserver
+  tasks:
+  - name: Execute a command on the host
+    command: hostname -s
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "8") or
+          (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "20")
+    register: hostname_output
+  - name: Show the ouput value
+    debug:
+     var: hostname_output.stdout

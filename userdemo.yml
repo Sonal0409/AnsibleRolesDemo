@@ -1,0 +1,10 @@
+
+- hosts: webserver
+  become: true
+  tasks:
+  - name: install package
+    package:
+     name:
+      - tree
+      - git
+     state: present
